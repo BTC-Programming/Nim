@@ -1,4 +1,4 @@
-// Nim simple by Wyatt Laberge
+// Nim simple by Wyatt and Bram
 // Initialzations
 var count = 0;
 var playerInput = 0;
@@ -10,15 +10,18 @@ alert("Welcome to Nim! You go first.");
 // Keep looping until someone wins
 while (count<21) {
    // Ask for player input and say current count, add to count
-   winner="cpu"; 
+   winner="CPU"; 
    count+=playerTurn();
    alert("Current count is "+count);
-   // Ask for CPU input and say current count, add to count
-   winner="you"; 
-   cpuInput=cpuTurn();
-   alert("CPU counts "+cpuInput);
-   count+=cpuInput;
-   alert("Current count is "+count);
+   // Check if player loses, and prevent CPU from taking turn if so
+   if (count<21) {
+      // Ask for CPU input and say current count, add to count
+      winner="you"; 
+      cpuInput=cpuTurn();
+      alert("CPU counts "+cpuInput);
+      count+=cpuInput;
+      alert("Current count is "+count);
+   }
 }
 alert(winner+" won!");
 // End
