@@ -12,9 +12,6 @@ while(count<21){
 		turn=cpuTurn(count);
 		count += turn;
 		alert("the count is now "+count);
-	} 
-	else {
-		alert("You lost!");
 	}
 }
 
