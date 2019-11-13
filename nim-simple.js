@@ -1,4 +1,5 @@
 var again=true, games=0, count=0, next=0;
+alert("Let\'s play Nim!");
 while (again == true) {
 	count=0;
 	turn=0;
