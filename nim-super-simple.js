@@ -1,11 +1,7 @@
 var count = 0, turn = 0, winner="none";
 alert("Let\'s play Nim. You go first.");
 while(winner=="none"){
-	if(count < 21){
-		turn = userTurn();
-		count += turn;
-		alert("Count is now "+count);
-	}
+	if (count < 21)	count = userTurn(count);
 	if (count == 20) {
 		winner = "User";
 		alert("Computer lost.");
@@ -14,11 +10,7 @@ while(winner=="none"){
 		winner = "CPU";
 		alert ("You lost.");
 	}
-	else {
-		turn=cpuTurn(count);
-		count += turn;
-		alert("Count is now "+count);
-	}
+	else count = cpuTurn(count);
 }
 
 function userTurn() {
@@ -29,12 +21,16 @@ function userTurn() {
 		if (turn > 0 && turn < 4 && Math.floor(turn)==turn) goodTurn=true;
 		else alert("Invalid Input");
 	}
-	return Number(turn);
+	count += Number(turn);
+	alert("Count is now "+count);
+	return count;
 }
 
 function cpuTurn(count){
 	var turn = Math.floor(Math.random()*3)+1;
 	if (count+turn > 20) cpuTurn(count);
 	alert("CPU counts "+turn);
-	return turn;
+	count += turn;
+	alert("Count is now "+count);
+	return count;
 }
