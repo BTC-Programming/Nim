@@ -13,7 +13,7 @@ while(winner=="none"){
 	else count = cpuTurn(count);
 }
 
-function userTurn() {
+function userTurn(count) {
 	var turn=0;
 	var goodTurn = false;
 	while (goodTurn == false) {
@@ -27,8 +27,12 @@ function userTurn() {
 }
 
 function cpuTurn(count){
-	var turn = Math.floor(Math.random()*3)+1;
-	if (count+turn > 20) cpuTurn(count);
+	var goodTurn = false;
+	var turn=0;
+	while (goodTurn == false) {
+		turn = Math.floor(Math.random()*3)+1;
+		if (turn == 1 || turn > 1 && count+turn < 21) goodTurn = true;
+	}
 	alert("CPU counts "+turn);
 	count += turn;
 	alert("Count is now "+count);
